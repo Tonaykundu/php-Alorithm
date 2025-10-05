@@ -1,0 +1,36 @@
+tree = {
+    'A': ['B', 'C', 'D'],
+    'B': ['E'],
+    'C': ['F'],
+    'D': ['G'],
+    'E': ['H', 'I'],
+    'F': ['J'],
+    'G': ['K'],
+    'H': ['L'],
+    'I': ['M'],
+    'J': [],
+    'K': [],
+    'L': [],
+    'M': []
+}
+
+stack = [('A', 0)]   # শুরুতে root node A, depth = 0
+visited = ['A']
+max_depth = 2        # সর্বোচ্চ depth limit
+goal = 'F'           # যে node খুঁজছি
+
+while stack:
+    res, depth = stack.pop()   # stack থেকে node আর তার depth বের করো
+    print(res)
+
+    if res == goal:            # goal পাওয়া গেলে
+        print("goal found")
+        break
+    else:
+        print('not found')
+
+    for i in tree[res]:        # current node এর children traverse করো
+        if i not in visited:   # আগে visit না হলে
+            if depth < max_depth:   # depth limit এর মধ্যে থাকলে
+                stack.append((i, depth + 1))
+                visited.append(i)
