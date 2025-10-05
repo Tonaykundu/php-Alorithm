@@ -1,0 +1,28 @@
+tree = {
+    'A': ['B', 'C', 'D'],
+    'B': ['E'],
+    'C': ['F'],
+    'D': ['G'],
+    'E': ['H', 'I'],
+    'F': ['J'],
+    'G': ['K'],
+    'H': ['L'],
+    'I': ['M'],
+    'J': [],
+    'K': [],
+    'L': [],
+    'M': []
+}
+
+stack=['A']
+visited =['A']
+
+while  stack:
+    res = stack.pop(0)
+    print(res)
+    for i in tree[res]:
+        if i not in visited:
+            stack.append(i)
+            visited.append(i)
+
+
