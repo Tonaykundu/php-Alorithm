@@ -1,0 +1,20 @@
+from collections import deque
+
+board=(1,5,6,4,7,3,8,2,9)
+goal=(1,2,3,4,5,6,7,8,0)
+queue=deque([board])
+visited={
+    board:0
+}
+solution=False
+while queue:
+  node =queue.popleft()
+  depth=visited[board]
+  print("current node:",node)
+  print("current depth:",depth)
+  if node == goal:
+     print("goalnode",node)
+     print("goaldepth",depth)
+     print("goal found")
+     solution=true
+     break
